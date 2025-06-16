@@ -38,7 +38,7 @@ export default defineConfig({
   video: 'on', // ✅ Modified to always record video for all tests
 
   screenshot: 'only-on-failure',
-  headless: false,
+  headless: true,
   actionTimeout: 10000,
 
   viewport: null,
