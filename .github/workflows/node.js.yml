@@ -57,3 +57,11 @@ jobs:
         with:
           name: playwright-videos
           path: test-results/**/video.webm
+
+      # ✅ Upload Allure Report Videos (from allure-report)
+      - name: Upload Allure Report Videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-videos
+          path: allure-report/data/attachments/*.webm
