@@ -13,6 +13,10 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+  reporter: [
+    ['list'], // Optional: shows results in terminal
+    ['allure-playwright']
+  ],
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -23,7 +27,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  // reporter: 'html',
   expect:{
     timeout:4000,
   },

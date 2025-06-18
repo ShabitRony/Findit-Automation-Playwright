@@ -20,7 +20,7 @@ test.describe('Smoke Suite', () => {
 });
 
 test.describe('Regression Suite', () => {
-  test('Extract product ID and save to file @regression', async ({ page }) => {
+  test('Extract product ID and save to file @regression @smoke', async ({ page }) => {
     await page.goto('https://base99.findit.id/product/8b1a0a28-770c-4444-bf1b-4b8083e83bd5');
 
     const productPage = new BasePage(page);
@@ -32,7 +32,7 @@ test.describe('Regression Suite', () => {
    
   });
 
-  test('Visit product page using product ID from file @regression', async ({ page }) => {
+  test('Visit product page using product ID from file @smoke', async ({ page }) => {
     const basePage = new BasePage(page);
 
     const productId = readProductId();
