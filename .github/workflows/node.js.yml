@@ -1,10 +1,7 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -42,21 +39,28 @@ jobs:
       - name: Run Playwright Tests
         run: npx playwright test
 
-      # ✅ Upload Playwright HTML Report (always run, even if tests fail)
-      - name: Upload Playwright HTML Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: playwright-report
+      # # ✅ Upload Playwright HTML Report (always run, even if tests fail)
+      # - name: Upload Playwright HTML Report
+      #   if: always()
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: playwright-report
+      #     path: playwright-report
 
-      # ✅ Upload Playwright Videos (always run)
-      - name: Upload Playwright Videos
+      # # ✅ Upload Playwright Videos (always run)
+      # - name: Upload Playwright Videos
+      #   if: always()
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: playwright-videos
+      #     path: test-results/**/video.webm
+
+      - name: Upload Allure Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-videos
-          path: test-results/**/video.webm
+          name: allure-report
+          path: allure-report
 
       # ✅ Upload Allure Report Videos (from allure-report)
       - name: Upload Allure Report Videos
