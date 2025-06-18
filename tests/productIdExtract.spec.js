@@ -6,6 +6,7 @@ import { saveFinalizedVideo } from '../utils/videoHelper.js';
 test.describe('Smoke Suite', () => {
   test('Extract product ID and save to file @smoke', async ({ page }) => {
     await page.goto('https://base99.findit.id/product/8b1a0a28-770c-4444-bf1b-4b8083e83bd5');
+    expect(1).toBe(2); // ❌ This will fail
 
     const productPage = new BasePage(page);
     const productId = await productPage.getProductIdFromUrl();
